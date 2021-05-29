@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/app/controller/CategoryController.java=UTF-8
+encoding//src/main/java/com/app/controller/OrderFoodController.java=UTF-8
+encoding//src/main/java/com/app/controller/ProductController.java=UTF-8
+encoding//src/main/java/com/app/controller/UserController.java=UTF-8
+encoding//src/main/java/com/app/dao/impl/BaseDAOImpl.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/index.jsp=UTF-8

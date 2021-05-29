@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="master" template="/WEB-INF/views/layout/master-layout.jsp">
+		<put-attribute name="sidebar" value="/WEB-INF/views/layout/sidebar.jsp"/>
+		<put-attribute name="top-nav" value="/WEB-INF/views/layout/top-nav.jsp"/>
+		<put-attribute name="body" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp"/>
+	</definition>
+	<definition	name="index" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
+	</definition>
+	<definition	name="login" template="/WEB-INF/views/login/login.jsp"/>
+	<!-- 
+		<definition	name="access-denied" template="/WEB-INF/views/access-denied/access-denied.jsp"/>
+		<definition	name="404-notfound" template="/WEB-INF/views/404/404-notfound.jsp"/>
+	 -->
+	<definition	name="order-food-list" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/orderfood/order-food.jsp"/>
+	</definition>
+	<definition	name="user-list" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/user/user-list.jsp"/>
+	</definition>
+ 	<definition	name="user-action" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/user/user-action.jsp"/>
+	</definition>
+ 	<definition	name="category-list" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/category/category-list.jsp"/>
+	</definition>
+ 	<definition	name="category-action" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/category/category-action.jsp"/>
+	</definition>
+	 <definition name="product-list" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/product/product-list.jsp"/>
+	</definition>
+ 	<definition	name="product-action" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/product/product-action.jsp"/>
+	</definition>
+</tiles-definitions>
