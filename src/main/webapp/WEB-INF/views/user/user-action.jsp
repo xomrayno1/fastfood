@@ -64,33 +64,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Quyền<span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<c:choose>
-													<c:when test="${!viewOnly}">
-													<form:select path="role" cssClass="form-control" >
-														<form:option value="1">Admin</form:option>
-														<form:option value="2">User</form:option>
-													</form:select>
-													</c:when>
-													<c:otherwise>
-													 	<c:choose>
-															<c:when test="${role == 1}">
-																<input type="text" readonly="readonly" class="form-control" value="Admin"/>
-															</c:when>
-															<c:otherwise>
-														 		<input type="text" readonly="readonly" class="form-control" value="User"/>
-															</c:otherwise>
-														</c:choose>	
-													</c:otherwise>
-												</c:choose>											
-												<div class="has-error">
-													<form:errors path="role" cssClass="help-block"/>
-												</div>
-											</div> 
-										</div>
+								 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Description<span class="required">*</span>
 											</label>

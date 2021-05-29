@@ -22,7 +22,7 @@
 							<li id="userlist"><a href='<c:url value="/user/list"></c:url>'>Tài khoản</a></li>	
 							<li id="productlist"><a href='<c:url value="/products/list"></c:url>'>Sản phẩm</a></li>
 							<li id="categorylist"><a href='<c:url value="/category/list"></c:url>'>Danh mục</a></li>	
-						 	<li id="orderlist"><a href='<c:url value="/orders/list"></c:url>'>Đơn hàng</a></li>	
+						 	<li id="orderlist"><a href='<c:url value="/order/list"></c:url>'>Đơn hàng</a></li>	
 						</ul>
 					</li>
 			</ul>

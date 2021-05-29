@@ -33,7 +33,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href='<c:url value="/index"></c:url>' class="site_title"><i class="fa fa-paw"></i> <span> Management </span></a>
+              <a href='<c:url value="/index"></c:url>' class="site_title"><i class="fa fa-paw"></i> <span> Quản lý </span></a>
             </div>
             <div class="clearfix"></div>
             <!-- menu profile quick info -->
@@ -42,8 +42,8 @@
                 <img src='<c:url value="/resources/images/img.jpg"></c:url>' alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>NCT Name</h2>
+                <span>Welcome, ${userInfo.name}</span>
+                <!-- <h2>NCT Name</h2> -->
               </div>
             </div>
             <!-- /menu profile quick info -->

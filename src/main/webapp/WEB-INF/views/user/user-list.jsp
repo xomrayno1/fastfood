@@ -24,7 +24,7 @@
                             <th class="column-title">Tên</th>  
                             <th class="column-title">Tên tài khoản</th>
                             <th class="column-title">Email</th>
-                            <th class="column-title">Quyền</th>
+                            
                             <th class="column-title no-link last text-center" colspan="3" ><span class="nobr">Action</span>
                             </th>
                           </tr>
@@ -39,16 +39,7 @@
                         	<td>${item.name}</td>
                         	<td>${item.username}</td>
                         	<td>${item.email}</td>
-                        	<td>
-                        		<c:choose>
-                        			<c:when test="${item.role == 1}">
-                        				Admin
-                        			</c:when>
-                        			<c:otherwise>
-                        				User
-                        			</c:otherwise>
-                        		</c:choose>
-                        	</td>
+  
                             <td colspan="3" class="last text-center">
                             	<input type="hidden" id="idProduct" value="${item.id}">
 	                            <a href='<c:url value="/user/view/${item.id}"></c:url>' class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i></a> 

@@ -25,7 +25,11 @@ public class OrderService {
 		//e.calTotalPrice();
 		e.setActiveFlag(Constant.ACTIVE);
 		e.setDate(new Date());
-		orderDAO.insert(e);
+		long id = orderDAO.saveOrder(e);
+		for(OrderDetail item : e.getListOrder()) {
+			item.setOrders(new Orders(id));
+			orderDetailDAO.insert(item);
+		}
 		return 0;
 	}
 
@@ -33,7 +37,6 @@ public class OrderService {
 		// TODO Auto-generated method stub
 		orderDAO.delete(e);
 	}
-
  
 	public List<Orders> findAll(Paging paging) {
 		// TODO Auto-generated method stub
@@ -45,6 +48,9 @@ public class OrderService {
 		return orderDAO.findById(Orders.class, id);
 	}
 
- 
+	public List<OrderDetail> findOrderDetailByOrder(long idOrder) {
+		// TODO Auto-generated method stub
+		return orderDetailDAO.findByProperty("orders.id", idOrder);
+	}
 
 }

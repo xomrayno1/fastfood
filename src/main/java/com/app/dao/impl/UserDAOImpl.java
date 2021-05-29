@@ -11,22 +11,21 @@ import com.app.entity.Users;
 @Transactional(rollbackFor = Exception.class)
 public class UserDAOImpl extends BaseDAOImpl<Users>implements UserDAO<Users>{
 
-	public long getTotalUser() {
-		// TODO Auto-generated method stub
-		StringBuilder queryCount =
-				new StringBuilder("SELECT COUNT(*) FROM Users as model where model.activeFlag = 1 ");
-		Query   queryNumber = factory.getCurrentSession().createQuery(queryCount.toString());
-		long count = (Long) queryNumber.uniqueResult();
-		return count;
-	}
-
+	@Override
 	public Users findByUsername(String username) {
 		// TODO Auto-generated method stub
-		StringBuilder queryCount =
-				new StringBuilder("SELECT *  FROM Users as model where model.activeFlag = 1 and model.username = "+username);
-		Query   queryNumber = factory.getCurrentSession().createQuery(queryCount.toString());
-		Users user = (Users)  queryNumber.getSingleResult();
+		StringBuilder query =
+				new StringBuilder("SELECT u  FROM Users u where u.activeFlag = 1 and u.username = :username");
+		Query queryQ = factory.getCurrentSession().createQuery(query.toString());
+		queryQ.setParameter("username", username);
+		Users user = (Users)  queryQ.getSingleResult();
+		if(user == null) {
+			return null;
+		}
 		return  user;
 	}
+
+ 
+  
 
 }

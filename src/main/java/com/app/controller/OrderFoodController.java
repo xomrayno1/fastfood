@@ -81,6 +81,7 @@ public class OrderFoodController {
 				if(flag) {
 					orders.addItem(orderDetail);
 				}
+				orders.calTotalPrice();
 			}
 			session.setAttribute(Constant.MSG_SUCCESS, "Đặt thành công");
 		} catch (Exception e) {
@@ -116,12 +117,37 @@ public class OrderFoodController {
 	public String cancelInvoice(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		try {
-			session.removeAttribute("invoice");
-			session.setAttribute(Constant.MSG_SUCCESS, "Huỷ thành công");
+			Orders orders = (Orders) session.getAttribute("invoice");
+			if(orders != null) {
+				session.removeAttribute("invoice");
+				session.setAttribute(Constant.MSG_SUCCESS, "Huỷ thành công");
+			}else {
+				session.setAttribute(Constant.MSG_ERROR, "Huỷ thất bại");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 			session.setAttribute(Constant.MSG_ERROR, "Huỷ thất bại");
+		}
+		return "redirect:/orderfood/list/1";
+	}
+	
+	@GetMapping(value = {"/pay"})
+	public String payInvoice(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Orders orders = (Orders) session.getAttribute("invoice");
+		try {
+			if(orders != null) {
+				orderService.orderFood(orders);
+				session.removeAttribute("invoice");
+				session.setAttribute(Constant.MSG_SUCCESS, "Thanh toán thành công");
+			}else {
+				session.setAttribute(Constant.MSG_ERROR, "Thanh toán thất bại");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			session.setAttribute(Constant.MSG_ERROR, "Thanh toán thất bại");
 		}
 		return "redirect:/orderfood/list/1";
 	}

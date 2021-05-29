@@ -41,7 +41,7 @@
          		</div>	
               </div>
               <div>               
-                <form:password path="password" cssClass="form-control" placeholder="Pasword"/>
+                <form:password path="password" cssClass="form-control" placeholder="Password"/>
          		<div class="has-error">
          			<form:errors path="password" cssClass="helpl-block" style="color :red"/>         		
          		</div>	

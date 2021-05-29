@@ -18,6 +18,12 @@
 	<definition	name="order-food-list" extends="master">
 		<put-attribute name="body" value="/WEB-INF/views/orderfood/order-food.jsp"/>
 	</definition>
+	<definition	name="order-list" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/order/order-list.jsp"/>
+	</definition>
+	<definition	name="order-detail" extends="master">
+		<put-attribute name="body" value="/WEB-INF/views/order/order-detail.jsp"/>
+	</definition>
 	<definition	name="user-list" extends="master">
 		<put-attribute name="body" value="/WEB-INF/views/user/user-list.jsp"/>
 	</definition>

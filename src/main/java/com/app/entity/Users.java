@@ -16,7 +16,7 @@ public class Users {
 	private String password;
 	private String name;
 	private String description;
-	private int role; // 1 admin 2 users
+	 
 	private String email;
 	private int activeFlag;
 	
@@ -51,12 +51,6 @@ public class Users {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public int getRole() {
-		return role;
-	}
-	public void setRole(int role) {
-		this.role = role;
 	}
 	public String getEmail() {
 		return email;

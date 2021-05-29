@@ -30,17 +30,17 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${list}" var="item" varStatus="i">
-						<tr>
-							<td>${pageInfo.offSet + i.index + 1}</td>
-							<td><img alt="" width="70px" height="70px"
-								src='<c:url value="${item.imageUrl}"></c:url>'></td>
-							<td class="title-product">${item.name}</td>
-							<td>${item.price}</td>
-							<td colspan="3" class="last text-center"><a
-								href="javascript:void(0)" onclick="orderItem(${item.id})"
-								class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-							</td>
-						</tr>
+								<tr>
+									<td>${pageInfo.offSet + i.index + 1}</td>
+									<td><img alt="" width="70px" height="70px"
+										src='<c:url value="${item.imageUrl}"></c:url>'></td>
+									<td class="title-product">${item.name}</td>
+									<td>${item.price}</td>
+									<td colspan="3" class="last text-center"><a
+										href="javascript:void(0)" onclick="orderItem(${item.id})"
+										class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+									</td>
+								</tr>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -71,21 +71,20 @@
 					</tr>
 				</thead>
 				<tbody>
-				 		
+					<c:if test="${list != null}">
 						<c:forEach items="${invoice.listOrder}" var="item" varStatus="i">
-						<tr>
-							<td>${pageInfo.offSet + i.index + 1}</td>
-							<td class="title-product">${item.product.name}</td>
-							<td>${item.price}</td>
-							<td>${item.count}</td>
-							<td >${item.totalPrice}</td>
-							<td class="last text-center"><a
-								href="javascript:void(0)" onclick="deleteItem(${item.product.id})"
-								class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
-							</td>
-						</tr>
-					</c:forEach>
-				  
+							<tr>
+								<td>${pageInfo.offSet + i.index + 1}</td>
+								<td class="title-product">${item.product.name}</td>
+								<td>${item.price}</td>
+								<td>${item.count}</td>
+								<td>${item.totalPrice}</td>
+								<td class="last text-center"><a href="javascript:void(0)"
+									onclick="deleteItem(${item.product.id})" class="btn btn-danger"><i
+										class="glyphicon glyphicon-trash"></i></a></td>
+							</tr>
+						</c:forEach>
+					</c:if>
 				</tbody>
 				<tfoot>
 					<tr>
@@ -97,7 +96,7 @@
 						<td colspan="4"></td>
 						<td></td>
 						<td>
-							<a class="btn btn-success">Thanh toán</a>
+							<a class="btn btn-success" onclick="payInvoice()">Thanh toán</a>
 							<a class="btn btn-danger" onclick="cancelInvoice()">Huỷ đơn</a>
 						</td>
 					</tr>
@@ -125,6 +124,11 @@
 	function cancelInvoice(){
 		if(confirm("Bạn có chắc chắn muốn huỷ nó không ?")){
 			location.href="<c:url value='/orderfood/cancel'/>";
+		}
+	}
+	function payInvoice(){
+		if(confirm("Bạn có chắc chắn muốn thanh toán không ?")){
+			location.href="<c:url value='/orderfood/pay'/>";
 		}
 	}
 	$(document).ready(function(){

@@ -46,6 +46,10 @@ public class UserService implements BaseService<Users>{
 		// TODO Auto-generated method stub
 		return userDAO.findByProperty(property, value);
 	}
- 
+	
+	public Users findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return userDAO.findByUsername(username);
+	}
 
 }

@@ -82,5 +82,13 @@
      		</bean>    
      		<mvc:default-servlet-handler/>
      		
-       
+       	<mvc:interceptors>
+     			<mvc:interceptor>
+     				<mvc:mapping path="/**"/>
+     				<mvc:exclude-mapping path="/login"/>
+     				<mvc:exclude-mapping path="/logout"/>
+     				<mvc:exclude-mapping path="/processLogin"/>
+     				<bean class="com.app.filter.AppFilter"/>
+     			</mvc:interceptor>		
+     	</mvc:interceptors>
     </beans>	

@@ -10,10 +10,10 @@ import com.app.entity.Orders;
 @Transactional(rollbackFor = Exception.class)
 public class OrderDAOImpl extends BaseDAOImpl<Orders>implements OrderDAO<Orders> {
 
-	public Orders saveOrder(Orders orders) {
+	public long saveOrder(Orders orders) {
 		// TODO Auto-generated method stub
-		Orders ordered =	(Orders)factory.getCurrentSession().save(orders);
-		return ordered;
+		Long id =	(Long)factory.getCurrentSession().save(orders);
+		return id;
 	}
 
 	 

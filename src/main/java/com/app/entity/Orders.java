@@ -22,9 +22,18 @@ public class Orders {
 	private double totalPrice;
 	private int activeFlag;
 	
-	@OneToMany(mappedBy = "orders")	
+	@OneToMany(mappedBy = "orders")
 	private List<OrderDetail> listOrder = new ArrayList<OrderDetail>();
  
+
+	public Orders() {
+		super();
+	}
+
+	public Orders(long id) {
+		super();
+		this.id = id;
+	}
 
 	public int getActiveFlag() {
 		return activeFlag;
@@ -81,7 +90,7 @@ public class Orders {
 	}
 	
 	public void removeItem(long id) {
-		Iterator<OrderDetail> iterator =	listOrder.iterator();
+		Iterator<OrderDetail> iterator = listOrder.iterator();
 		while(iterator.hasNext()) {
 			OrderDetail od = 	iterator.next();
 			if(od.getProduct().getId() == id) {
