@@ -19,6 +19,7 @@ public class Users {
 	 
 	private String email;
 	private int activeFlag;
+	private int role; 
 	
 	
 	
@@ -63,6 +64,12 @@ public class Users {
 	}
 	public void setActiveFlag(int activeFlag) {
 		this.activeFlag = activeFlag;
+	}
+	public int getRole() {
+		return role;
+	}
+	public void setRole(int role) {
+		this.role = role;
 	}
 	
 }

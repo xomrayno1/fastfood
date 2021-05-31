@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.entity.Users;
 import com.app.service.UserService;
+import com.app.utils.Constant;
 import com.app.validator.LoginValidator;
  
 
@@ -53,13 +54,13 @@ public class HomeController {
 			return "login";
 		}
 		Users userInfo = userService.findByUsername(users.getUsername());
-		session.setAttribute("userInfo",userInfo);
+		session.setAttribute(Constant.USER_INFO,userInfo);
 		return "redirect:/index";
 	}
 	@RequestMapping(value = "/logout")
 	public String logout(ModelMap model,HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		session.removeAttribute("user");
+		session.removeAttribute(Constant.USER_INFO);
 		return "redirect:/login";
 	}
 	

@@ -16,7 +16,8 @@
 						</ul>
 					</li>
 			</ul>
-			<ul class="nav side-menu" id="manage">
+			<c:if test="${userInfo.role == 1}">
+				<ul class="nav side-menu" id="manage">
 					<li><a><i class="fa fa-users"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li id="userlist"><a href='<c:url value="/user/list"></c:url>'>Tài khoản</a></li>	
@@ -25,6 +26,7 @@
 						 	<li id="orderlist"><a href='<c:url value="/order/list"></c:url>'>Đơn hàng</a></li>	
 						</ul>
 					</li>
-			</ul>
+				</ul>
+			</c:if>
 	</div>
 </div>

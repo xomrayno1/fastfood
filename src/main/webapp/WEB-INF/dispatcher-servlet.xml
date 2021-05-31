@@ -91,4 +91,14 @@
      				<bean class="com.app.filter.AppFilter"/>
      			</mvc:interceptor>		
      	</mvc:interceptors>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/products/**" />
+			<mvc:mapping path="/category/**" />
+			<mvc:mapping path="/user/**" />
+			<mvc:mapping path="/order/**" />
+			<bean class="com.app.filter.FilterAdmin" />
+		</mvc:interceptor>
+	</mvc:interceptors>
     </beans>	
